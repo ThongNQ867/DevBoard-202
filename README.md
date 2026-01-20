@@ -17,8 +17,16 @@ I also try to add a VSYS pin which include the use of a Schottky diode between t
 
 
 For me, PCB routing is the most problematic part of this project, partly because I'm new to KiCAD, partly because of the enormous diode (which I have changed to a more cost effective and 10 times smaller version). I started trying to make a PCB with the size of a Pi Pico but ended up increase the width to make the wiring easier 
+
+
 <img width="225" height="347" alt="image" src="https://github.com/user-attachments/assets/1e5f82fc-0b17-4adf-a16b-2884519198a3" />
 
 This project has taught me a lot on how to use KiCAD and choose componets to print for my PCB. 
+
+
+BOM: 
+
+
+<img width="827" height="1045" alt="image" src="https://github.com/user-attachments/assets/0123e93d-a82e-48ba-a138-08c6286b8be3" />
 
 
