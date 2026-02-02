@@ -80,3 +80,5 @@ BOM:
 1x W25Q16JVUXIQ Flash
 
 1x X322512MSB4SI oscillator
+
+![alt text](image-8.png)
