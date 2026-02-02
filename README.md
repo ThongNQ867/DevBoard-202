@@ -40,7 +40,7 @@ SPI flash, built-in LED and oscillator is pretty straight forward, but I did lea
 
 ![alt text](image-5.png)
 ![alt text](image-6.png)
-
+![alt text](image-7.png)
 
 For me, PCB routing is the most problematic part of this project, partly because I'm new to KiCAD, partly because of the enormous diode (which I have changed to a more cost effective and 10 times smaller version). I started trying to make a PCB with the size of a Pi Pico but ended up increase the width to make the wiring easier 
 
