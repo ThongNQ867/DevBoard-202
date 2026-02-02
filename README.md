@@ -51,18 +51,32 @@ This project has taught me a lot on how to use KiCAD and choose componets to pri
 
 
 BOM: 
-17x CL05B104KO5NNNC capacitors 
+17x CL05B104KO5NNNC capacitors
+
 1x 1N4148WS diode
+
 1x KT-0603R LED
+
 1x TYPE-C-31-M-12 USB-C port
+
 2x 0402WGF5101TCE 5.1K resistors
+
 2x 0402WGF1002TCE 10k resistors
+
 2x 0402WGF1001TCE 1k resistors
+
 2x RCT0227RJLF 27ohm resistors
+
 1x 0402WGF5601TCE  5.6k resistors
+
 1x 0402WGF470JTCE  470 ohm resistors
+
 1x TS-1088-AR02016 button
+
 1x RP2040
+
 1x MCP1700T-3302E/TT LDO
+
 1x W25Q16JVUXIQ Flash
+
 1x X322512MSB4SI oscillator
