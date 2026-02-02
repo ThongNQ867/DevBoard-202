@@ -1,5 +1,6 @@
 # DevBoard202
-This is a dev board that runs with the RP2040 but structured more simple than Pi Pico. The schematic is inspired by the document "Hardware design with RP2040", the PCB is made with the tutorial from @KaiPereira
+This is a dev board that runs with the RP2040 but structured more simple than Pi Pico. The schematic is inspired by the document "Hardware design with RP2040", the PCB is made with the tutorial from @KaiPereira.
+The reason I do this project is to understand more about how capacitors, resistors are used with components like MCU, oscillator, USB ports. I used to thought development boards are really complicated and I thought that only actual engineers can know how to place those parts and to choose values, and types of resistors and capacitors. This project had taught me how dev boards are actually not too hard to make and how I can make one or modifies somthing based on how I wanted to used it. In the end of this project, I did also learn alot in about using KiCAD, choosing parts, choosing footprint, wiring and actually ordering a PCB. 
 
 While there is a tutorial from Blueprint, I think it is better to fact check stuffs again and get understand more clearly about how to set up the value for resistors and capacitors by myself from these 2 links:
 RP2040 datasheet
@@ -11,9 +12,34 @@ https://pip-assets.raspberrypi.com/categories/814-rp2040/documents/RP-008279-DS-
 Pi Pico Datasheet
 https://pip-assets.raspberrypi.com/categories/610-raspberry-pi-pico/documents/RP-008307-DS-1-pico-datasheet.pdf?disposition=inline
 
-I also try to add a VSYS pin which include the use of a Schottky diode between the VBUS and VSYS so that I can power it by an external power source. I found it quite challenging to understand how the USB host mode work but I think powering the external power source to the VBUS would probably be fine. Also because of powering externally to VSYS, I also pull VBUS down if its not connected to power source with 2 resistors to GND.
+Here is the result:
+3D model: 
 
-<img width="1130" height="764" alt="image" src="https://github.com/user-attachments/assets/606744dd-49ea-4e4c-9ee4-cdaa2997c876" />
+![alt text](image.png)
+
+
+Schematic: 
+
+![alt text](image-1.png)
+
+
+PCB: 
+
+![alt text](image-2.png)
+
+
+First, lets start of with setting up the decoupling capacitors. From the tutorial, it is recommended to used 1 capacitors per powerline so I just follow it. However, I found it a bit troublesome to actually know which pin is a powerline as I'm not very used to reading datasheets. Before this, I had always connect the pins to the capacitor (just as the datasheets often describe), making the schematic super hard to read. However, from the tutorial, I learnt that I can connect them seperately, making the schematic much more easier to read, and also solving the problem that the symbol of rp2040 on kicad doesnt shows all the power pins. 
+
+![alt text](image-3.png)
+
+Next is the powerline. Though it looks simple, it actually took me some time to actually figure out how the powerline, VSYS and VBUS works as I was trying to make my devboard be able to use an external power source. I added a VSYS pin which include the use of a Schottky diode between the VBUS and VSYS so that I can power it by an external power source. I found it quite challenging to understand how the USB host mode work but I think powering the external power source to the VBUS would probably be fine. Also because of powering externally to VSYS, I also pull VBUS down if its not connected to power source with 2 resistors to GND. After that, I also decided to wire the VBUS to a GPIO pin to detect if the board is using external power source
+
+![alt text](image-4.png)
+
+SPI flash, built-in LED and oscillator is pretty straight forward, but I did learn so much on how to calculate the resistor for the oscillator.
+
+![alt text](image-5.png)
+![alt text](image-6.png)
 
 
 For me, PCB routing is the most problematic part of this project, partly because I'm new to KiCAD, partly because of the enormous diode (which I have changed to a more cost effective and 10 times smaller version). I started trying to make a PCB with the size of a Pi Pico but ended up increase the width to make the wiring easier 
@@ -25,9 +51,18 @@ This project has taught me a lot on how to use KiCAD and choose componets to pri
 
 
 BOM: 
-
-
-<img width="827" height="1045" alt="image" src="https://github.com/user-attachments/assets/0123e93d-a82e-48ba-a138-08c6286b8be3" />
-
-
->>>>>>> 0d6ac24c7d285681b798ea21a0c74827fe58f81a
+17x CL05B104KO5NNNC capacitors 
+1x 1N4148WS diode
+1x KT-0603R LED
+1x TYPE-C-31-M-12 USB-C port
+2x 0402WGF5101TCE 5.1K resistors
+2x 0402WGF1002TCE 10k resistors
+2x 0402WGF1001TCE 1k resistors
+2x RCT0227RJLF 27ohm resistors
+1x 0402WGF5601TCE  5.6k resistors
+1x 0402WGF470JTCE  470 ohm resistors
+1x TS-1088-AR02016 button
+1x RP2040
+1x MCP1700T-3302E/TT LDO
+1x W25Q16JVUXIQ Flash
+1x X322512MSB4SI oscillator
