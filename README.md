@@ -21,31 +21,31 @@ https://pip-assets.raspberrypi.com/categories/610-raspberry-pi-pico/documents/RP
 Here is the result:
 3D model: 
 
-![alt text](image.png)
+![alt text](https://github.com/ThongNQ867/DevBoard-202/blob/main/Images/3d_design.png)
 
 
 Schematic: 
 
-![alt text](image-1.png)
+![alt text](https://github.com/ThongNQ867/DevBoard-202/blob/main/Images/schematic.png)
 
 
 PCB: 
 
-![alt text](image-2.png)
+![alt text](https://github.com/ThongNQ867/DevBoard-202/blob/main/Images/pcb.png)
 
 
 First, lets start of with setting up the decoupling capacitors. From the tutorial, it is recommended to used 1 capacitors per powerline so I just follow it. However, I found it a bit troublesome to actually know which pin is a powerline as I'm not very used to reading datasheets. Before this, I had always connect the pins to the capacitor (just as the datasheets often describe), making the schematic super hard to read. However, from the tutorial, I learnt that I can connect them seperately, making the schematic much more easier to read, and also solving the problem that the symbol of rp2040 on kicad doesnt shows all the power pins. 
 
-![alt text](image-3.png)
+![alt text](https://github.com/ThongNQ867/DevBoard-202/blob/main/Images/decoupling.png)
 
 Next is the powerline. Though it looks simple, it actually took me some time to actually figure out how the powerline, VSYS and VBUS works as I was trying to make my devboard be able to use an external power source. I added a VSYS pin which include the use of a Schottky diode between the VBUS and VSYS so that I can power it by an external power source. I found it quite challenging to understand how the USB host mode work but I think powering the external power source to the VBUS would probably be fine. Also because of powering externally to VSYS, I also pull VBUS down if its not connected to power source with 2 resistors to GND. After that, I also decided to wire the VBUS to a GPIO pin to detect if the board is using external power source
 
-![alt text](image-4.png)
+![alt text](https://github.com/ThongNQ867/DevBoard-202/blob/main/Images/USB.png)
 
 SPI flash, built-in LED and oscillator is pretty straight forward, but I did learn so much on how to calculate the resistor for the oscillator.
 
-![alt text](image-5.png)
-![alt text](image-6.png)
+![alt text](https://github.com/ThongNQ867/DevBoard-202/blob/main/Images/SPI%20flash.png)
+![alt text](https://github.com/ThongNQ867/DevBoard-202/blob/main/Images/oscillator.png)
 ![alt text](built_in_led-1.png)
 
 For me, PCB routing is the most problematic part of this project, partly because I'm new to KiCAD, partly because of the enormous diode (which I have changed to a more cost effective and 10 times smaller version). I started trying to make a PCB with the size of a Pi Pico but ended up increase the width to make the wiring easier 
