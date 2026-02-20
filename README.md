@@ -46,7 +46,7 @@ SPI flash, built-in LED and oscillator is pretty straight forward, but I did lea
 
 ![alt text](https://github.com/ThongNQ867/DevBoard-202/blob/main/Images/SPI%20flash.png)
 ![alt text](https://github.com/ThongNQ867/DevBoard-202/blob/main/Images/oscillator.png)
-![alt text](built_in_led-1.png)
+![alt text](https://github.com/ThongNQ867/DevBoard-202/blob/main/Images/built_in_led-1.png)
 
 For me, PCB routing is the most problematic part of this project, partly because I'm new to KiCAD, partly because of the enormous diode (which I have changed to a more cost effective and 10 times smaller version). I started trying to make a PCB with the size of a Pi Pico but ended up increase the width to make the wiring easier 
 
